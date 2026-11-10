@@ -1,0 +1,10 @@
+node_modules
+.next
+.next-final
+.next-single
+out
+.env*
+!.env.example
+*.tsbuildinfo
+.pnpm-store
+.pnpm-cache
