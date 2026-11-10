@@ -2,6 +2,7 @@ node_modules
 .next
 .next-final
 .next-single
+.next*/
 out
 .env*
 !.env.example
