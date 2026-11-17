@@ -23,7 +23,7 @@ export function PriceCalculator() {
     </div>
     <div className="calculator-result"><span>Итого за игру</span><strong aria-live="polite">{formatRubles(total)}</strong></div>
     <p className="price-note">Оплата наличными при проведении мероприятия</p>
-    <Button asChild className="calc-cta"><a href="#booking">Обсудить дату <ArrowUpRight size={18} /></a></Button>
+    <Button asChild className="calc-cta"><a href="#contacts">Обсудить дату <ArrowUpRight size={18} /></a></Button>
     <div className="calculator-foot">От 2 часов · Цена не зависит от числа участников · Выезд и реквизит включены в стандартной географии</div>
   </div>;
 }
