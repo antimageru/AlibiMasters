@@ -7,7 +7,7 @@ export const BUSINESS = {
   minimumDurationHours: 2,
   defaultDurationHours: 2,
   timezone: "Europe/Moscow",
-  serviceAreas: ["Геленджик", "Кабардинка", "Дивноморское", "Большой Геленджик", "Новороссийск"],
+  serviceAreas: ["Геленджик", "Кабардинка", "Дивноморское", "Новороссийск"],
 } as const;
 
 export function calculatePrice(durationHours: number): number {
