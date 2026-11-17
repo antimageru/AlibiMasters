@@ -3,6 +3,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { ArrowUpRight, Clock3, MapPin, UsersRound } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { MaxNumber } from "@/components/contact-prompt";
 import { BUSINESS, formatRubles } from "@/lib/business";
 
 export const metadata: Metadata = {
@@ -51,7 +52,7 @@ export default function BirthdayPage() {
           <div className="birthday-detail-grid">
             <article><UsersRound size={28} /><h3>Состав гостей</h3><p>Обычно проводим игры для 10–20 человек. Для детей 8–12 лет, подростков 12–18 лет и взрослых 18+ подберём подходящую сложность.</p></article>
             <article><Clock3 size={28} /><h3>Время и формат</h3><p>Длительность от двух часов. Выберем классическую, спортивную или адаптированную версию игры.</p></article>
-            <article><MapPin size={28} /><h3>Место проведения</h3><p>Выезжаем в Геленджик, Кабардинку, Дивноморское, Большой Геленджик и Новороссийск. Другие места — по согласованию.</p></article>
+            <article><MapPin size={28} /><h3>Место проведения</h3><p>Выезжаем в Геленджик, Кабардинку, Дивноморское и Новороссийск. Другие места — по согласованию.</p></article>
           </div>
         </div>
       </section>
@@ -74,6 +75,7 @@ export default function BirthdayPage() {
             <p>Напишите дату, место и примерное количество гостей. Обсудим формат и проверим возможность проведения.</p>
             <a href={BUSINESS.phoneHref}>Позвонить: {BUSINESS.phoneDisplay} <ArrowUpRight size={18} /></a>
             <a href={BUSINESS.telegram} target="_blank" rel="noopener noreferrer">Написать в Telegram <ArrowUpRight size={18} /></a>
+            <MaxNumber />
           </div>
         </div>
       </section>
