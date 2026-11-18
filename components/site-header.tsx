@@ -27,14 +27,14 @@ export function SiteHeader() {
         <nav className="desktop-nav" aria-label="Основная навигация">
           {links.map((item) => <Link key={item.href} href={item.href}>{item.label}</Link>)}
         </nav>
-        <Link className="header-contact" href="/#contacts">Обсудить игру <ArrowUpRight size={15} aria-hidden="true" /></Link>
+        <a className="header-contact" href={BUSINESS.telegram} target="_blank" rel="noopener noreferrer">Связаться в Telegram <ArrowUpRight size={15} aria-hidden="true" /></a>
         <button className="menu-trigger" type="button" aria-label={open ? "Закрыть меню" : "Открыть меню"} aria-expanded={open} aria-controls="mobile-menu" onClick={() => setOpen(!open)}>
           {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
       {open && <nav className="mobile-nav" id="mobile-menu" aria-label="Мобильная навигация">
         {links.map((item) => <Link key={item.href} href={item.href} onClick={() => setOpen(false)}>{item.label}<ArrowUpRight size={16} /></Link>)}
-        <Link href="/#contacts" onClick={() => setOpen(false)}>Обсудить игру <ArrowUpRight size={16} /></Link>
+        <a href={BUSINESS.telegram} target="_blank" rel="noopener noreferrer" onClick={() => setOpen(false)}>Связаться в Telegram <ArrowUpRight size={16} /></a>
         <a href={BUSINESS.phoneHref}>Позвонить: {BUSINESS.phoneDisplay}</a>
       </nav>}
     </header>

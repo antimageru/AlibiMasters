@@ -4,7 +4,7 @@ import Image from "next/image";
 import { ArrowDown, ArrowRight, ArrowUpRight, Clock3, MapPin, Sparkles, Users, Wallet } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { PriceCalculator } from "@/components/price-calculator";
-import { BookingForm } from "@/components/booking-form";
+import { ContactPrompt, MaxNumber } from "@/components/contact-prompt";
 import { BUSINESS, formatRubles } from "@/lib/business";
 
 export const metadata: Metadata = {
@@ -23,7 +23,7 @@ const faq = [
   { q: "Что входит в стоимость?", a: "Ведение игры, выезд и игровой реквизит в пределах стандартной географии обслуживания. Для других населённых пунктов условия выезда согласовываются индивидуально." },
   { q: "Сколько человек может играть?", a: "Обычно проводим игру для 10–20 участников. Подберём правила и ход игры под состав компании и площадку." },
   { q: "Для какого возраста подходит игра?", a: "Проводим игры для детей 8–12 лет, подростков 12–18 лет и взрослых 18+. Сложность правил и сценарий подбираем по возрасту участников." },
-  { q: "Где вы проводите игры?", a: "В Геленджике, Кабардинке, Дивноморском, Большом Геленджике и Новороссийске. Другие населённые пункты — по согласованию." },
+  { q: "Где вы проводите игры?", a: "В Геленджике, Кабардинке, Дивноморском и Новороссийске. Другие населённые пункты — по согласованию." },
   { q: "Как подтверждается бронирование?", a: "После вашего обращения мы согласуем дату, время, место и формат. Бронь подтверждается только после отдельного согласования с организатором." },
   { q: "Как происходит оплата?", a: "Только наличными при проведении мероприятия. Онлайн-оплаты и предоплаты на сайте нет." },
 ];
@@ -37,7 +37,7 @@ export default function HomePage() {
           <div className="hero-kicker"><span className="gold-line" /> ИГРА, В КОТОРОЙ КАЖДЫЙ ВАЖЕН</div>
           <h1>Выездная Мафия<br />в Геленджике —<br /><em>игра, которую</em><br /><em>запомнят все</em></h1>
           <p className="hero-lead">Команда опытных ведущих: от 6 лет проведения игр. Для дней рождения, корпоративов и компаний друзей от 10 до 20 человек. От 8 000 ₽ за мероприятие.</p>
-          <div className="hero-actions"><Button asChild><a href="#contacts">Обсудить игру <ArrowUpRight size={18} /></a></Button><Button asChild variant="outline"><a href="#price">Рассчитать стоимость <ArrowRight size={18} /></a></Button></div>
+          <div className="hero-actions"><Button asChild><a href={BUSINESS.telegram} target="_blank" rel="noopener noreferrer">Связаться в Telegram <ArrowUpRight size={18} /></a></Button><Button asChild variant="outline"><a href="#price">Рассчитать стоимость <ArrowRight size={18} /></a></Button></div>
           <div className="hero-meta"><div><span>01 / 03</span><strong>Ваш повод</strong></div><div><span>02 / 03</span><strong>Наша игра</strong></div><div><span>03 / 03</span><strong>Общие эмоции</strong></div></div>
         </div>
         <figure className="hero-photo"><Image src="/images/mafia-guest-with-mask.webp" alt="Гостья игры «Мафия» держит серебристую маску" fill priority sizes="(max-width: 850px) 100vw, 45vw" /><figcaption>РЕАЛЬНЫЕ КАДРЫ НАШИХ ИГР</figcaption></figure>
@@ -63,8 +63,8 @@ export default function HomePage() {
 
     <section className="section faq-section" id="faq"><div className="container faq-grid"><div><span className="eyebrow">08 / ВОПРОСЫ</span><h2>Перед тем,<br /><em>как сыграем.</em></h2><p>Не нашли ответ? Свяжитесь с нами удобным способом.</p><a href={BUSINESS.telegram} target="_blank" rel="noopener noreferrer" className="text-link">Написать в Telegram <ArrowUpRight size={18} /></a></div><div className="faq-list">{faq.map((item, index) => <details key={item.q}><summary><span className="faq-index">0{index + 1}</span><span>{item.q}</span><span className="faq-plus" aria-hidden="true">+</span></summary><p>{item.a}</p></details>)}</div></div></section>
 
-    <section className="section booking-section"><div className="container"><BookingForm /></div></section>
+    <section className="section booking-section"><div className="container"><ContactPrompt /></div></section>
 
-    <section className="contact-section" id="contacts"><div className="container contact-grid"><div><span className="eyebrow">09 / КОНТАКТЫ</span><h2>Ваш следующий ход<br /><em>за вами.</em></h2><p>Геленджик, Кабардинка, Дивноморское, Большой Геленджик, Новороссийск. Другие города — по согласованию.</p></div><div className="contact-actions"><a href={BUSINESS.phoneHref}><span>ПОЗВОНИТЬ</span><strong>{BUSINESS.phoneDisplay}</strong><ArrowUpRight size={25} /></a><a href={BUSINESS.telegram} target="_blank" rel="noopener noreferrer"><span>НАПИСАТЬ</span><strong>Telegram</strong><ArrowUpRight size={25} /></a></div></div></section>
+    <section className="contact-section" id="contacts"><div className="container contact-grid"><div><span className="eyebrow">09 / КОНТАКТЫ</span><h2>Ваш следующий ход<br /><em>за вами.</em></h2><p>Геленджик, Кабардинка, Дивноморское, Новороссийск. Другие города — по согласованию.</p></div><div className="contact-actions"><a href={BUSINESS.telegram} target="_blank" rel="noopener noreferrer"><span>НАПИСАТЬ МНЕ В TELEGRAM</span><strong>@antimageru</strong><ArrowUpRight size={25} /></a><MaxNumber /><a href={BUSINESS.phoneHref}><span>ПОЗВОНИТЬ</span><strong>{BUSINESS.phoneDisplay}</strong><ArrowUpRight size={25} /></a></div></div></section>
   </>;
 }
