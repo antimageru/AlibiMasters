@@ -1,0 +1,31 @@
+name: Build static site for REG.RU
+
+on:
+  push:
+    branches: [reg-hosting-static]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: npm ci
+      - run: npx next build --webpack
+        env:
+          STATIC_EXPORT: '1'
+          NEXT_PUBLIC_SITE_URL: https://alibi-masters.ru
+      - uses: actions/upload-artifact@v4
+        with:
+          name: alibi-masters-reg-hosting
+          path: out/
+          if-no-files-found: error
+          retention-days: 7
+
